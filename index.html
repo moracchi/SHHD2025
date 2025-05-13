@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シップヘルスケアホールディングス 財務ハイライト</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>シップヘルスケアホールディングス</h1>
+            <h2>財務ハイライト 2025年3月期</h2>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 連結ハイライト セクション -->
+        <section id="summary" class="card">
+            <h2>連結ハイライト（前期比）</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>2025/3期 実績</th>
+                            <th>前期比</th>
+                            <th>コメント</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>売上高</td>
+                            <td>6,782億円</td>
+                            <td class="positive">+7.5%</td>
+                            <td>大学病院向け大型案件が堅調、SPD新規受託も寄与</td>
+                        </tr>
+                        <tr>
+                            <td>営業利益</td>
+                            <td>247.8億円</td>
+                            <td class="positive">+1.0%</td>
+                            <td>原材料・人件費の高騰で粗利改善が限定的</td>
+                        </tr>
+                        <tr>
+                            <td>経常利益</td>
+                            <td>260.2億円</td>
+                            <td class="positive">+3.2%</td>
+                            <td>持分法益増等が押上げ</td>
+                        </tr>
+                        <tr>
+                            <td>親会社株主帰属当期純利益</td>
+                            <td>151.3億円</td>
+                            <td class="positive">+9.6%</td>
+                            <td>特別利益に貸倒引当金戻入1,600百万円</td>
+                        </tr>
+                        <tr>
+                            <td>自己資本比率</td>
+                            <td>39.1%</td>
+                            <td class="positive">+3.1pt</td>
+                            <td>長期借入金19,839百万円、繰延税金負債841百万円減少</td>
+                        </tr>
+                        <tr>
+                            <td>期末現金同等物</td>
+                            <td>748億円</td>
+                            <td class="negative">▲82億円</td>
+                            <td>投資▲40億円、借入返済▲195億円が主因</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note">*営業利益率は3.7％で横ばい（前年3.9％）*</p>
+        </section>
+
+        <!-- セグメント別動向 セクション -->
+        <section id="segments" class="card">
+            <h2>事業セグメント別動向</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>セグメント</th>
+                            <th>売上高 (億円)</th>
+                            <th>前期比</th>
+                            <th>営業利益 (億円)</th>
+                            <th>前期比</th>
+                            <th>計画対比所感</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>トータルパックプロデュース</td>
+                            <td>1,331.7</td>
+                            <td class="negative">▲0.4%</td>
+                            <td>120.2</td>
+                            <td class="positive">+1.8%</td>
+                            <td>大型案件は順調だが、更新案件先送りで短期案件が"当初計画を下回る"</td>
+                        </tr>
+                        <tr>
+                            <td>メディカルサプライ</td>
+                            <td>4,749.2</td>
+                            <td class="positive">+10.8%</td>
+                            <td>69.7</td>
+                            <td class="positive">+6.9%</td>
+                            <td>SPD新規稼働が想定超で"当初計画以上"の増収増益</td>
+                        </tr>
+                        <tr>
+                            <td>ライフケア</td>
+                            <td>366.7</td>
+                            <td class="positive">+1.6%</td>
+                            <td>21.9</td>
+                            <td class="negative">▲16.0%</td>
+                            <td>介護新施設の立上費用・光熱費高騰で計画未達（減益）</td>
+                        </tr>
+                        <tr>
+                            <td>調剤薬局</td>
+                            <td>334.7</td>
+                            <td class="positive">+2.3%</td>
+                            <td>34.3</td>
+                            <td class="negative">▲2.9%</td>
+                            <td>薬価改定影響で減益、計画下振れ示唆</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-container">
+                <div class="chart-wrapper">
+                    <h3>セグメント別売上高比率</h3>
+                    <canvas id="salesChart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <h3>セグメント別営業利益比率</h3>
+                    <canvas id="profitChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- 計画との比較 セクション -->
+        <section id="plan-comparison" class="card">
+            <h2>計画との比較（＝中計最終年度の自己評価）</h2>
+            <div class="assessment-grid">
+                <div class="assessment-item">
+                    <h3>コア事業の高成長</h3>
+                    <ul>
+                        <li>売上は中計最終年度目標（非開示）を上回り、7期連続増収。</li>
+                        <li>ただし粗利率の鈍化で営業利益は目標未達とみられる（社内コメント「短期案件中心に計画未満」）</li>
+                    </ul>
+                </div>
+                <div class="assessment-item">
+                    <h3>積極的なバリュー拡大</h3>
+                    <ul>
+                        <li>SPD事業統合・再編（5社統合）を完了し、規模の経済を先行投資。</li>
+                    </ul>
+                </div>
+                <div class="assessment-item">
+                    <h3>機能強化戦略</h3>
+                    <ul>
+                        <li>グループ再編でのれん減少（▲17億円）と固定負債圧縮により自己資本比率39%へ改善。</li>
+                    </ul>
+                </div>
+                <div class="assessment-item">
+                    <h3>サステナビリティ</h3>
+                    <ul>
+                        <li>配当は58円へ増配（前期50円）で配当性向36.2%に上昇。</li>
+                    </ul>
+                </div>
+            </div>
+            <blockquote>
+                <strong>まとめ:</strong> 売上・純利益は計画水準を達成／上回る一方、利益率改善は投資・コスト増で遅れ。SPD拡大と資本効率向上で次期以降に成果を回収するフェーズ。
+            </blockquote>
+        </section>
+
+        <!-- 2026/3期会社計画 セクション -->
+        <section id="forecast" class="card">
+            <h2>2026/3期会社計画 vs 2025/3期実績</h2>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>2025/3期 実績</th>
+                            <th>2026/3期 会社計画</th>
+                            <th>増減率</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>売上高</td>
+                            <td>6,782億円</td>
+                            <td>7,000億円</td>
+                            <td class="positive">+3.2%</td>
+                        </tr>
+                        <tr>
+                            <td>営業利益</td>
+                            <td>247.8億円</td>
+                            <td>260.0億円</td>
+                            <td class="positive">+4.9%</td>
+                        </tr>
+                        <tr>
+                            <td>親会社帰属純利益</td>
+                            <td>151.3億円</td>
+                            <td>155.0億円</td>
+                            <td class="positive">+2.5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="note">*伸び率は保守的。営業利益率を3.7%→3.7%と横ばいで見込む。*</p>
+            <div class="chart-container">
+                <canvas id="forecastChart"></canvas>
+            </div>
+        </section>
+
+        <!-- 今期注目トピック セクション -->
+        <section id="topics" class="card">
+            <h2>今期注目トピック整理</h2>
+            <div class="topics-list">
+                <div class="topic-item">
+                    <span class="topic-number">1</span>
+                    <div class="topic-content">
+                        <h3>SHIP VISION 2024完遂＆次期「VISION 2030」始動</h3>
+                        <p>CAGR5％、営業利益率4％、ROE12％を数値目標に掲げる</p>
+                    </div>
+                </div>
+                <div class="topic-item">
+                    <span class="topic-number">2</span>
+                    <div class="topic-content">
+                        <h3>SPD事業統合効果</h3>
+                        <p>2024/10 5社統合完了、シナジー顕在化が来期の利益押上げ要因</p>
+                    </div>
+                </div>
+                <div class="topic-item">
+                    <span class="topic-number">3</span>
+                    <div class="topic-content">
+                        <h3>介護・ライフケアのコスト圧力</h3>
+                        <p>介護施設新設費用と光熱費が利益を圧迫。価格転嫁と稼働率向上が課題</p>
+                    </div>
+                </div>
+                <div class="topic-item">
+                    <span class="topic-number">4</span>
+                    <div class="topic-content">
+                        <h3>設備更新先送りリスク</h3>
+                        <p>医療機関の資金繰り環境に依存。大型案件比率高め維持が鍵</p>
+                    </div>
+                </div>
+                <div class="topic-item">
+                    <span class="topic-number">5</span>
+                    <div class="topic-content">
+                        <h3>財務健全性向上</h3>
+                        <p>長期借入金削減でネットD/E改善、次期増配（予想60円）と並行した還元姿勢</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ワンポイント所感 セクション -->
+        <section id="summary-opinion" class="card">
+            <h2>ワンポイント所感</h2>
+            <ul class="highlight-list">
+                <li><strong>全社売上・純利益は計画線上</strong>も、<strong>OPマージン改善が宿題</strong>。新中計は"ポートフォリオ経営"を掲げており、低採算セグメントの立て直しが焦点。</li>
+                <li><strong>SPDプラットフォームの伸長</strong>がグループの稼ぎ頭。稼働率・ロジスティクス効率化が利益率拡大のカギ。</li>
+                <li><strong>キャッシュ創出力低下</strong>（営業CF▲112億円）は売上債権増によるもので、与信・回収管理が次のチェックポイント。</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 シップヘルスケアホールディングス株式会社 財務情報</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
